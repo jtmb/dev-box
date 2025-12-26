@@ -75,25 +75,7 @@ This will build the image, start the container, and drop you into a shell as the
 
 Open the folder in VS Code and reopen in container for a full-featured development environment.
 
-## Usage
-
-Once inside the container:
-
-- Run the launcher for menu-driven actions:
-  ```sh
-  ./launcher.sh
-  ```
-- Use the menu to:
-  - Show IP
-  - Create directories/secrets
-  - Set permissions
-  - Install Terraform/Ansible
-  - Configure Git
-  - Setup shell themes
-  - And more
-
-### Custom Scripts
-## Dev-Tricks Launcher
+## Usage: dev-tricks-launcher
 
 `dev-tricks-launcher.sh` is a menu-driven TUI (Text User Interface) tool designed to simplify common DevOps and development tasks inside the dev-box container. It provides a convenient, interactive way to access system information, manage tools, and perform routine operations without memorizing commands.
 
