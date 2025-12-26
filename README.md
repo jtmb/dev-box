@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/jtmb">
-    <img src="/home/jamesb/dev/repos/dev-box/src/logo.png" alt="Logo" width="140" height="125">
+    <img src="src/logo.png" alt="Logo" width="140" height="125">
   </a>
 </h1>
 
