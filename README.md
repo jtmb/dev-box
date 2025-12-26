@@ -56,6 +56,7 @@ dev-box provides a reproducible, containerized Ubuntu environment for DevOps, au
 - 🔒 Secure secrets and SSH directory setup
 - 🐳 Docker-in-Docker support (optional)
 - 🦸 Includes dev-tricks - a custom built devops menu-driven TUI for dev-box
+- 📏 240 MB docker image size
 - 😜 NEW* Includes cheeky startup messages. (Can be disabled in config.)
 
 
