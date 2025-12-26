@@ -1,16 +1,17 @@
 services:
-  wsl-dev:
+  dev-box:
     build:
       context: .
       dockerfile: Dockerfile
     environment:
       - USER=ubuntu
-    image: wsl-dev:latest
-    container_name: wsl-dev
+    image: dev-box:latest
+    container_name: dev-box
     tty: true
     stdin_open: true
     volumes:
-      - ~/dev/container-storage/wsl-dev/home:/home/ubuntu
-      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/dev/container-storage/dev-box/home:/home/ubuntu
+      - ~/dev/container-storage/repos:/home/ubuntu/repos
+      - /var/run/docker.sock:/var/run/docker.sock # attach to docker-socket
       - /usr/bin/docker:/usr/bin/docker   # optional: if the container doesn't have docker cli
-    restart: no
+    restart: unless-stopped

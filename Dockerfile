@@ -37,16 +37,16 @@ RUN apt-get update \
     rm /tmp/vault.zip
 
 # App directory separate from home
-WORKDIR /wsl-dev
+WORKDIR /dev-box
 
-# Copy launcher and supporting folders into /wsl-dev
-COPY launcher.sh /wsl-dev/launcher.sh
+# Copy launcher and supporting folders into /dev-box
+COPY launcher.sh /dev-box/launcher.sh
 COPY docker-init.sh /usr/local/bin/docker-init.sh
-RUN chmod +x /wsl-dev/launcher.sh
+RUN chmod +x /dev-box/launcher.sh
 RUN mkdir -p /home/ubuntu /home/ubuntu/dev /scripts /home/ubuntu/dev/repos \
  && touch /home/ubuntu/.bashrc \
  && chmod +x /usr/local/bin/docker-init.sh \ 
- && echo '#!/usr/bin/env bash\ncd /wsl-dev && exec /wsl-dev/launcher.sh "$@"' \
+ && echo '#!/usr/bin/env bash\ncd /dev-box && exec /dev-box/launcher.sh "$@"' \
     > /usr/local/bin/launcher \
  && chmod +x /usr/local/bin/launcher \ 
  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
@@ -57,6 +57,6 @@ ENV HOME=/home/ubuntu
 WORKDIR /home/ubuntu/repos
 
 # SHELL ["/bin/bash", "-c"]
-# RUN cd /wsl-dev && ./launcher.sh <<< "1"
+# RUN cd /dev-box && ./launcher.sh <<< "1"
 
 ENTRYPOINT ["/usr/local/bin/docker-init.sh"]

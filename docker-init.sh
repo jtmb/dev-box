@@ -12,7 +12,7 @@ USER=$(whoami)  # the user running this script (usually root during image/contai
 
 # Fix ownership and permissions for commonly used directories and files.
 # Use recursive chown to set both owner and group to 'ubuntu' for these paths.
-sudo chown -R ubuntu:ubuntu /wsl-dev /home/ubuntu/repos /usr/local/bin /scripts /home/ubuntu
+sudo chown -R ubuntu:ubuntu /dev-box /home/ubuntu/repos /usr/local/bin /scripts /home/ubuntu
 
 # Ensure the 'ubuntu' user's home directory has standard dotfiles
 sudo cp /etc/skel/.bashrc /home/ubuntu/
@@ -24,7 +24,7 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.bashrc /home/ubuntu/.profile /home/ubuntu
 sudo chown ubuntu:ubuntu /var/run/docker.sock
 mkdir -p "$HOME/repos" "$HOME/.ssh" "$HOME/dev/temp"
 chmod 700 "$HOME/.ssh" "$HOME/.secrets" && chmod 600 "$HOME/.ssh/id_"* 2>/dev/null
-chmod 755 "$HOME/repos" /scripts /wsl-dev
+chmod 755 "$HOME/repos" /scripts /dev-box
 
 
 # Add the 'ubuntu' user to the docker group so docker commands can be run without sudo.
