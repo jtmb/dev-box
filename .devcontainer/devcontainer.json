@@ -1,0 +1,32 @@
+{
+    "name": "WSL Dev Container",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "wsl-dev",
+    "workspaceFolder": "/home/ubuntu/repos",
+    "shutdownAction": "stopCompose",
+    "remoteUser": "ubuntu",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "terminal.integrated.env.linux": {
+                    "TERM": "xterm-256color",
+                    "HOME": "/home/ubuntu"
+                },
+                "editor.tabSize": 4,
+                "editor.formatOnSave": true
+            },
+            "extensions": [
+                // "ms-azuretools.vscode-docker",
+                // "hashicorp.terraform",
+                // "ms-python.python",
+                // "ms-vscode.cpptools"
+            ]
+        }
+    },
+    "postCreateCommand": "echo hello from devcontainer postCreateCommand",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+        "source=${localEnv:HOME}/dev/container-storage/wsl-dev/home,target=/home/ubuntu,type=bind"
+    ]
+}

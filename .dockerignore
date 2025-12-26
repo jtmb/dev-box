@@ -1,0 +1,17 @@
+.git
+.gitignore
+.vscode
+node_modules
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.DS_Store
+*.md
+tmp/
+build/
+dist/
+*.log
+.cache

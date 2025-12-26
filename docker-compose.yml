@@ -1,0 +1,16 @@
+services:
+  wsl-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - USER=ubuntu
+    image: wsl-dev:latest
+    container_name: wsl-dev
+    tty: true
+    stdin_open: true
+    volumes:
+      - ~/dev/container-storage/wsl-dev/home:/home/ubuntu
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker   # optional: if the container doesn't have docker cli
+    restart: no
