@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/jtmb">
-    <img src="src/logo.png" alt="Logo" width="140" height="125">
+    <img src="src/img/logo.png" alt="Logo" width="140" height="125">
   </a>
 </h1>
 
@@ -32,8 +32,10 @@
 dev-box provides a reproducible, containerized Ubuntu environment for DevOps, automation, and tool testing. It leverages Docker Compose and VS Code devcontainers for a seamless developer experience, with pre-installed tools like Ansible, Terraform, and Vault.
 
 <div align="center">
-  <img src="src/image.png" alt="dev-box screenshot" width="600" style="max-width:60%; height:auto; display:block; margin:1;" />
+  <img src="src/img/image.png" alt="dev-box screenshot" width="600" style="max-width:90%; height:auto; display:block; margin:1;" />
 </div>
+
+---
 
 ## Features
 
@@ -45,6 +47,7 @@ dev-box provides a reproducible, containerized Ubuntu environment for DevOps, au
 - Customizable shell themes and aliases
 - Secure secrets and SSH directory setup
 - Docker-in-Docker support (optional)
+- Includes dev-tricks - a custom built devops menu-driven TUI for dev-box
 
 ## Architecture
 
@@ -90,8 +93,40 @@ Once inside the container:
   - And more
 
 ### Custom Scripts
+## Dev-Tricks Launcher
 
-You can extend or automate by calling scripts directly (see `launcher.sh` and referenced scripts).
+`dev-tricks-launcher.sh` is a menu-driven TUI (Text User Interface) tool designed to simplify common DevOps and development tasks inside the dev-box container. It provides a convenient, interactive way to access system information, manage tools, and perform routine operations without memorizing commands.
+
+**Key Features:**
+- View local and public IP addresses
+- Check system info and disk usage
+- Run network tests
+- View Git status
+- Ping Ansible inventory
+- Check Vault status
+- Show tool versions (Terraform, Ansible, Vault, Git)
+- Clear Terraform cache or Bash history
+- Reload the shell environment
+
+<div align="center">
+  <img src="src/img/dev-tricks.png" alt="dev-ticks screenshot" width="600" style="max-width:100%; height:auto; display:block; margin:1;" />
+</div>
+
+**Usage:**
+
+To launch the Dev-Tricks TUI, simply type:
+
+```sh
+launcher
+```
+
+Or run the script directly:
+
+```sh
+src/dev-tricks-launcher.sh
+```
+
+Follow the on-screen menu to select and execute actions.
 
 ## Troubleshooting
 

@@ -11,6 +11,7 @@ ENV TZ=UTC
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends bash ca-certificates sudo \
+    iproute2 iputils-ping  \
     tree \
     python3-pip \
     software-properties-common \
@@ -37,16 +38,16 @@ RUN apt-get update \
     rm /tmp/vault.zip
 
 # App directory separate from home
-WORKDIR /dev-box
+WORKDIR /dev-box 
 
 # Copy launcher and supporting folders into /dev-box
-COPY launcher.sh /dev-box/launcher.sh
-COPY docker-init.sh /usr/local/bin/docker-init.sh
-RUN chmod +x /dev-box/launcher.sh
+COPY src/dev-tricks-launcher.sh /dev-box/dev-tricks-launcher.sh
+COPY src/docker-init.sh /usr/local/bin/docker-init.sh
+RUN chmod +x /dev-box/dev-tricks-launcher.sh
 RUN mkdir -p /home/ubuntu /home/ubuntu/dev /scripts /home/ubuntu/dev/repos \
  && touch /home/ubuntu/.bashrc \
  && chmod +x /usr/local/bin/docker-init.sh \ 
- && echo '#!/usr/bin/env bash\ncd /dev-box && exec /dev-box/launcher.sh "$@"' \
+ && echo '#!/usr/bin/env bash\ncd /dev-box && exec /dev-box/dev-tricks-launcher.sh "$@"' \
     > /usr/local/bin/launcher \
  && chmod +x /usr/local/bin/launcher \ 
  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
@@ -57,6 +58,6 @@ ENV HOME=/home/ubuntu
 WORKDIR /home/ubuntu/repos
 
 # SHELL ["/bin/bash", "-c"]
-# RUN cd /dev-box && ./launcher.sh <<< "1"
+# RUN cd /dev-box && ./dev-tricks-launcher.sh <<< "1"
 
 ENTRYPOINT ["/usr/local/bin/docker-init.sh"]
