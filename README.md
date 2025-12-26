@@ -71,6 +71,13 @@ dev-box provides a reproducible, containerized Ubuntu environment for DevOps, au
 ```
 This will build the image, start the container, and drop you into a shell as the `ubuntu` user.
 
+or build manually:
+```sh
+docker compose up --build -d # build the stack
+docker exec -it dev-box bash # exec into the dev-box container interactive bash shell
+```
+
+
 ### VS Code Devcontainer
 
 Open the folder in VS Code and reopen in container for a full-featured development environment.
