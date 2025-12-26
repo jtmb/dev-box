@@ -18,7 +18,6 @@
 - [Features](#features)
 - [Architecture](#architecture)
 - [Setup](#setup)
-- [Usage](#usage)
 - [Troubleshooting](#troubleshooting)
 - [File Structure](#file-structure)
 - [Customization](#customization)
